@@ -8,10 +8,19 @@ s s * e d c
 """
 
 
-TEST_BOARD0 = """
+TEST_BOARD01 = """
 * * * * * *
 * * * * * *
 z z * * * *
+* * * * * *
+* * * * * *
+* * * * * *
+"""
+
+TEST_BOARD02 = """
+* * * * * *
+* * * * * *
+* * * * z z
 * * * * * *
 * * * * * *
 * * * * * *
@@ -52,11 +61,3 @@ z z * b * *
 * * e c c d
 * * e * * d
 """
-
-TEST_BOARDS = [
-    TEST_BOARD0,
-    TEST_BOARD1,
-    TEST_BOARD2,
-    TEST_BOARD3,
-    TEST_BOARD4,
-]
