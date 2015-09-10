@@ -1,5 +1,6 @@
 from boards import (
-    TEST_BOARD0,
+    TEST_BOARD01,
+    TEST_BOARD02,
     TEST_BOARD1,
     TEST_BOARD2,
     TEST_BOARD3,
@@ -61,7 +62,7 @@ class Board(object):
     width = 6
     height = 6
 
-    exit = (5,2)
+    exit = (5, 2)
 
     blocks = None
 
@@ -70,7 +71,9 @@ class Board(object):
         self.parsed_data = self._parse_raw_data()
         self.block_names = self._get_block_names()
         self.width, self.height = self._get_board_dimensions()
-        self.blocks = [self.get_block_by_name(name) for name in self.block_names]
+        self.blocks = {
+            name: self.get_block_by_name(name) for name in self.block_names
+        }
 
     def _parse_raw_data(self):
         data = self.raw_data.replace(' ', '').split('\n')
@@ -106,8 +109,7 @@ class Board(object):
         return []
 
     def is_game_finished(self):
-        # check if the main block placed on the exit point
-        pass
+        return self.exit in self.blocks[SOLVING_BLOCK].points
 
 
 class Block(object):
